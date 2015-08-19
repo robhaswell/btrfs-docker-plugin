@@ -2,7 +2,7 @@ curl -sSL https://get.docker.com/ | sudo sh
 sudo service docker start
 sudo mkdir -p /run/docker/plugins
 
-sudo apt-get -y install git btrfs-tools python-setuptools socat
+sudo apt-get -y install git btrfs-tools python-setuptools build-essential socat
 
 sudo mkfs.btrfs /dev/sdb
 sudo mkdir /mnt/btrfs
