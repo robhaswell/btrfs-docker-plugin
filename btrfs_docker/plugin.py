@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request
 app = Flask(__name__)
+app.debug = True
 
 @app.route('/Plugin.Activate', methods=['POST'])
 def plugin_activate():
