@@ -16,6 +16,7 @@ def volume_create():
 @app.route('/VolumeDriver.Mount', methods=['POST'])
 def volume_mount():
     data = json.loads(request.get_data())
+    os.system("mkdir -p /mnt/docker/%s" % (data['Name'],))
     os.system("mount -t btrfs -o subvol=%s /dev/sdb /mnt/docker/%s" % (data['Name'], data['Name']))
     return '{"Mountpoint": "/mnt/docker/%s", "Err": null}' % (data['Name'],)
 
@@ -28,7 +29,7 @@ def volume_path():
 @app.route('/VolumeDriver.Unmount', methods=['POST'])
 def volume_unmount():
     data = json.loads(request.get_data())
-    os.system("unmount /mnt/docker/%s" % (data['Name'],))
+    os.system("umount /mnt/docker/%s" % (data['Name'],))
     return '{"Err": null}'
 
 def main():
