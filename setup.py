@@ -17,6 +17,6 @@ setup(
     },
     install_requires=[
         "flask",
-        "json",
+        "simplejson",
     ],
 )
