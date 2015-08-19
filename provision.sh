@@ -1,6 +1,7 @@
 curl -sSL https://get.docker.com/ | sudo sh
 sudo service docker restart
 sudo mkdir -p /run/docker/plugins
+sudo docker pull busybox
 
 sudo apt-get -y install git btrfs-tools python-setuptools build-essential python-dev socat
 
@@ -15,4 +16,4 @@ cd btrfs-docker-plugin
 
 sudo python setup.py install
 
-sudo socat UNIX-LISTEN:/run/docker/plugins/btrfs.sock,fork TCP:127.0.0.1:5000
+sudo socat UNIX-LISTEN:/run/docker/plugins/btrfs.sock,fork TCP:127.0.0.1:5000 &
